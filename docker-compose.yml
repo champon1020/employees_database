@@ -1,0 +1,28 @@
+version: "3"
+services:
+  mysql-employees:
+    image: library/mysql:5.7
+    container_name: mysql-employees
+    environment:
+      MYSQL_ROOT_PASSWORD: toor
+      MYSQL_ROOT_HOST: '%'
+      TZ: "Asia/Tokyo"
+    volumes:
+      - "./data:/docker/data"
+      - "./init/mysql:/docker-entrypoint-initdb.d"
+    ports:
+      - "33306:3306"
+    expose:
+      - "33306"
+  psql-employees:
+    image: library/postgres
+    container_name: psql-employees
+    environment:
+      POSTGRES_PASSWORD: toor
+    volumes:
+      - "./data:/docker/data"
+      - "./init/psql:/docker-entrypoint-initdb.d"
+    ports:
+      - "15432:5432"
+    expose:
+      - "15432"
