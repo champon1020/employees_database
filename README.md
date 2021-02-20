@@ -3,11 +3,14 @@ You can run the docker containers with sample database [employees](https://dev.m
 
 This repository supports MySQL and PostgreSQL.
 
+## Extract data folder
+```
+tar jxf data.tar.bz2
+```
+
 ## Run container
 You can run the docker containers with using following `docker-compose` command.
 ```
-cd /path/to/employees_database
-
 docker-compose up -d
 ```
 
